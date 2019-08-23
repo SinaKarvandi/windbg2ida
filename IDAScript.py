@@ -199,5 +199,3 @@ for item in ListOfColoredFunctions:
 print("===================================================")
 print("Happy Reverse Engineering ;)")
 print("===================================================")
-
-
