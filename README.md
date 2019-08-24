@@ -353,4 +353,4 @@ Contribution
 Windbg2ida is maintained by **Sina Karvandi**, you can find me in [Twitter](https://twitter.com/Intel80x86) . If you see any problem or if you need a new feature you can use [Issues](https://github.com/SinaKarvandi/windbg2ida/issues) on GitHub.  
 Any Contribution is appreciated.
 
-Windbg2ida is under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) - Template of this website comes from [here](http://www.html5webtemplates.co.uk).
+Windbg2ida is under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
