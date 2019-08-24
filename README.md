@@ -12,8 +12,6 @@ Shows every steps of Windbg in IDA :)
 *   [Blog](https://rayanfam.com)
 *   [Ntdebug](https://ntdebug.com)
 
-[Follow @Intel80x86](https://twitter.com/Intel80x86?ref_src=twsrc%5Etfw)
-
 
 Introduction to Windbg2ida
 ==========================
@@ -33,15 +31,15 @@ How to use?
 
       Download windbg2ida from [here](https://github.com/SinaKarvandi/windbg2ida/archive/master.zip) or use git to download files.
 
-    git clone https://github.com/SinaKarvandi/windbg2ida.git
+    ```git clone https://github.com/SinaKarvandi/windbg2ida.git```
 
   
 
       Open Windbg and load windbg2ida.js script (replace path with your computer path to windbg2ida.js)
 
-    	.load jsprovider.dll
+    	```.load jsprovider.dll```
 
-    	.scriptload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"
+    	```.scriptload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"```
 
   
 
@@ -55,26 +53,26 @@ How to use?
 *         The simplest example is execute until the return of current function. (replace the path to save the dump)
   
 
-    	!windbg2ida\_run\_until\_ret "c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"
+    	```!windbg2ida\_run\_until\_ret "c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
 
   
 *         If you wanna run a specific number of instructions (e.g 100 instruction). (replace the path to save the dump)
   
 
-    	!windbg2ida\_run\_with\_limitation 100,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"
+    	```!windbg2ida\_run\_with\_limitation 100,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
 
   
 *         If you want to execute until a specific address is executed. (replace the path to save the dump and the address(es))
   
 
-    	!windbg2ida\_run\_until\_address "fffff80617bc4622,fffff80617bc4628,fffff80617bc462a"  
-,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"
+    	```!windbg2ida\_run\_until\_address "fffff80617bc4622,fffff80617bc4628,fffff80617bc462a"  
+,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
 
   
 *         If you want to execute until a specific address is executed or if windbg reaches to the return of current function. (replace the path to save the dump and the address(es))
   
 
-    	!windbg2ida\_run\_until\_address\_or\_return "fffff80617bc4622","c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"
+    	```!windbg2ida\_run\_until\_address\_or\_return "fffff80617bc4622","c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
 
   
   
@@ -97,21 +95,21 @@ Each time you run IDAScript.py all the .w2i files in the "w2i Files" graphs are 
 *         Change the color of code coverage graph. (Change the hex number of color). This option is special useful when you want to compare two or more dumps.
   
 
-    	!windbg2ida\_set\_color 0x36AC29
+    	```!windbg2ida\_set\_color 0x36AC29```
 
   
   
 *         Disable Step in into function calls.
   
 
-    	!windbg2ida\_disable\_stepin
+    	```!windbg2ida\_disable\_stepin```
 
   
   
 *         Disable registers in comment of IDA.
   
 
-    	!windbg2ida\_disable\_registers\_in\_comment
+    	```!windbg2ida\_disable\_registers\_in\_comment```
 
   
 **For more information about other configs use the !windbg2ida to see the help.**  
@@ -125,7 +123,7 @@ Each time you run IDAScript.py all the .w2i files in the "w2i Files" graphs are 
 
       To unload the windbg2ida.js (replace path with your computer path to windbg2ida.js)
 
-    	.scriptunload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"
+    	```.scriptunload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"```
 
   
   
