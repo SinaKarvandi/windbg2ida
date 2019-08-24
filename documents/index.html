@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Windbg2ida - Windbg and IDA plugin</title>
+  <meta name="description" content="Windbg2ida is a Windbg JavaScript plugin which integrates Windbg results of code coverage with IDAPython and colorize the IDA graphs." />
+  <meta name="keywords" content="windbg2ida, code coverage ida windbg, Colorize graph, windbg to ida, windbg javascript plugin, IDAPython script, compate execution ida" />
+  <meta name="author" content="Sina Karvandi">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Windbg<font color="#00FFFF">2</font><span class="logo_colour">ida</span></a></h1>
+          <h2>Shows every steps of Windbg in IDA :)</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a href="index.html">Home</a></li>
+          <li><a href="https://github.com/SinaKarvandi/windbg2ida/archive/master.zip">Download</a></li>
+          <li><a href="https://github.com/SinaKarvandi/windbg2ida">Source Code</a></li>
+          <li><a href="https://rayanfam.com">Blog</a></li>
+          <li><a href="https://ntdebug.com">Ntdebug</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <div style="text-align:center">
+          <p><a href="https://twitter.com/Intel80x86?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+              data-show-count="false">Follow @Intel80x86</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </p>
+        </div>
+        <h3>Latest News</h3>
+        <h4>First Version Released</h4>
+        <h5>Aug 21st, 2019</h5>
+        <p></p>
+        <h3>Similar Projects</h3>
+        <ul>
+          <li><a href="https://github.com/bootleg/ret-sync">ret-sync</a></li>
+          <li><a href="http://rmadair.github.io/windbg2ida/">Another Windbg2ida for 32bit only</a></li>
+          <li><a href="https://github.com/cylance/Ablation/">Ablation</a></li>
+          <li><a href="http://www.exploit-monday.com/2011/07/integrating-windbg-and-ida-for-improved.html">Integrating
+              WinDbg and IDA for Improved Code Flow Analysis</a></li>
+
+        </ul>
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Introduction to Windbg2ida</h1>
+        <p>&nbsp;Windbg2ida lets you dump each step (instruction) in Windbg then give you a dump file and you can use it later
+          in your IDA to put color on
+          each line of the instructions that you've run to show code coverage.
+        </p>
+        <img src="./style/windbg2ida.png" alt="Windbg2ida" class="center">
+        <p>You can use Windbg2ida to see differences between two or more code coverages in IDA.</p>
+
+        <h2>How to use?</h2>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Load Script</h4>
+      </br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Download windbg2ida from <a
+            href="https://github.com/SinaKarvandi/windbg2ida/archive/master.zip">here</a> or use git to download files.
+        </p>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;git clone https://github.com/SinaKarvandi/windbg2ida.git</pre>
+        </br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open Windbg and load windbg2ida.js script (replace path with your
+          computer path to windbg2ida.js)</p>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	.load jsprovider.dll</pre>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	.scriptload "C:\Users\Sina\Desktop\windbg2ida\windbg2ida.js"</pre>
+        </br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Important note : If you can't load the script or the script gives you
+          error about using files then make sure to
+          update you windbg (Windows SDK) to the latest version as the previous versions have problem with using file
+          with JavaScript.
+        </p>
+      </br>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Examples</h4>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The simplest example is execute until the return of current function.
+          (replace the path to save the dump)</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_run_until_ret "c:\\users\\sina\\desktop\\dump1.w2i"</pre>
+
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you wanna run a specific number of instructions (e.g 100
+          instruction). (replace the path to save the dump)</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_run_with_limitation 100,"c:\\users\\sina\\desktop\\dump1.w2i"</pre>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to execute until a specific address is executed. (replace
+          the path to save the dump and the address(es))</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_run_until_address "fffff80617bc4622,fffff80617bc4628,fffff80617bc462a"</br>,"c:\\users\\sina\\desktop\\dump1.w2i"</pre>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you want to execute until a specific address is executed or if windbg
+          reaches to the return of current function. (replace the path to save the dump and the address(es))</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_run_until_address_or_return "fffff80617bc4622","c:\\users\\sina\\desktop\\dump1.w2i"</pre>
+        </br>
+      </br>
+    </br>
+    
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Show Dump in IDA</h4>
+  </br>
+  <p>Now in order to use your dump file(s), copy them into "w2i Files" folder next to IDAScript.py, goto IDA > File > Script file... > select IDAScript.py.</p>
+  <p>Each time you run IDAScript.py all the .w2i files in the "w2i Files" graphs are colorized in IDA. You can see "Output Window" for more details (e.g functions that changed their colors).</p>
+</br>
+</br>
+  
+
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Configuration</h4>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change the color of code coverage graph. (Change the hex number of
+          color).
+          This option is special useful when you want to compare two or more dumps.</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_set_color 0x36AC29</pre>
+        </br>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disable Step in into function calls.</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_disable_stepin</pre>
+        </br>
+        </br>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disable registers in comment of IDA.</li>
+        </br>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	!windbg2ida_disable_registers_in_comment</pre>
+        </br>
+        <b>For more information about other configs use the !windbg2ida to see the help.</b>
+        </br>
+      </br>
+    </br>
+</br>
+
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Unload Script</h4>
+        </br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To unload the windbg2ida.js (replace path with your
+          computer path to windbg2ida.js)</p>
+        <pre>&nbsp;&nbsp;&nbsp;&nbsp;	.scriptunload "C:\Users\Sina\Desktop\windbg2ida\windbg2ida.js"</pre>
+        </br>
+        </br>
+
+        <h2>Pictures</h2>
+        <img src="./style/windbg2ida-IDAGraph.png" alt="Windbg2ida" class="center" width="100%" height="100%">
+        <img src="./style/windbg2ida-compare-two-scripts.png" alt="Windbg2ida" class="center" width="100%" height="100%">
+        <img src="./style/Windbg2ida-windbg.png" alt="Windbg2ida" class="center" width="100%" height="100%">
+
+        <h2>Demo</h2>
+        <iframe width="560" class="center" height="315" src="https://www.youtube.com/embed/7A1uaLQkRlw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2>Windbg2ida Help</h2>
+        <script src="https://gist.github.com/SinaKarvandi/9f34477244c7530a0e36ada383092866.js"></script>
+        <h2>Features</h2>
+        <p>Current features :</p>
+        <ul>
+          <li>Comparing two or more code coverage files simultaneously</li>
+          <li>Works on both x64 and x86 version of Windbg</li>
+          <li>Show <strong>registers</strong> for each instruction</li>
+          <li>Show <strong>memorry contents</strong> for each instruction</li>
+          <li>Both User-mode and Kernel-mode Compatible</li>
+          <li>Use dump files offline without need to re-run in Windbg</li>
+          <li>Show other modules and invalid addresses</li>
+          <li>etc.</li>
+        </ul>
+        <h2>What's new?</h2>
+        <ul>
+          <li>Add comparing for two or more files</li>
+          <li>Add read from folders</li>
+          <li>Add registers + eflag read</li>
+          <li>Add branch status show</li>
+        </ul>
+
+        <h2>Todo</h2>
+        <ul>
+          <li>Add Pause when a special value detected for a register</li>
+          <li>Add Pause when a special memory address used in program flow</li>
+        </ul>
+
+        <h2>Contribution</h2>
+        <p>Windbg2ida is maintained by <strong>Sina Karvandi</strong>, you can find me in <a
+            href="https://twitter.com/Intel80x86">Twitter</a> .
+          If you see any problem or if you need a new feature you can use <a
+            href="https://github.com/SinaKarvandi/windbg2ida/issues">Issues</a> on GitHub.</br>
+          Any Contribution is appreciated.</p>
+
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      Windbg2ida is under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a> - Template of this website
+      comes from <a href="http://www.html5webtemplates.co.uk">here</a>.
+    </div>
+  </div>
+</body>
+
+</html>
