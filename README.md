@@ -6,7 +6,7 @@ Windbg2ida - Windbg and IDA plugin
 Shows every steps of Windbg in IDA :)
 -------------------------------------
 
-*   [Home](index.html)
+*   [Home](https://windbg2ida.ntdebug.com)
 *   [Download](https://github.com/SinaKarvandi/windbg2ida/archive/master.zip)
 *   [Source Code](https://github.com/SinaKarvandi/windbg2ida)
 *   [Blog](https://rayanfam.com)
@@ -135,6 +135,8 @@ Pictures
 
 Demo
 ----
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/7A1uaLQkRlw/0.jpg)](http://www.youtube.com/watch?v=7A1uaLQkRlw "Windbg2ida Demo")
+
 
 Windbg2ida Help
 ---------------
