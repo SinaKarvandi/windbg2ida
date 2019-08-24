@@ -131,11 +131,13 @@ Each time you run IDAScript.py all the .w2i files in the "w2i Files" graphs are 
 Pictures
 --------
 
-![Windbg2ida](./style/windbg2ida-IDAGraph.png) ![Windbg2ida](./style/windbg2ida-compare-two-scripts.png) ![Windbg2ida](./style/Windbg2ida-windbg.png)
+![Windbg2ida](https://windbg2ida.ntdebug.com/style/windbg2ida-IDAGraph.png) 
+![Windbg2ida](https://windbg2ida.ntdebug.com/style/windbg2ida-compare-two-scripts.png) 
+![Windbg2ida](https://windbg2ida.ntdebug.com/style/Windbg2ida-windbg.png)
 
 Demo
 ----
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/7A1uaLQkRlw/0.jpg)](http://www.youtube.com/watch?v=7A1uaLQkRlw "Windbg2ida Demo")
+[![Windbg2IDA Demo](http://img.youtube.com/vi/7A1uaLQkRlw/0.jpg)](http://www.youtube.com/watch?v=7A1uaLQkRlw "Windbg2ida Demo")
 
 
 Windbg2ida Help
