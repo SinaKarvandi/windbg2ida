@@ -18,7 +18,7 @@ Introduction to Windbg2ida
 
  Windbg2ida lets you dump each step (instruction) in Windbg then give you a dump file and you can use it later in your IDA to put color on each line of the instructions that you've run to show code coverage.
 
-![Windbg2ida](./style/windbg2ida.png)
+![Windbg2ida](https://windbg2ida.ntdebug.com/style/windbg2ida.png)
 
 You can use Windbg2ida to see differences between two or more code coverages in IDA.
 
@@ -37,9 +37,9 @@ How to use?
 
       Open Windbg and load windbg2ida.js script (replace path with your computer path to windbg2ida.js)
 
-    	```.load jsprovider.dll```
+    	```.load jsprovider.dll
 
-    	```.scriptload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"```
+    	.scriptload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"```
 
   
 
@@ -65,8 +65,7 @@ How to use?
 *         If you want to execute until a specific address is executed. (replace the path to save the dump and the address(es))
   
 
-    	```!windbg2ida\_run\_until\_address "fffff80617bc4622,fffff80617bc4628,fffff80617bc462a"  
-,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
+    	```!windbg2ida\_run\_until\_address "fffff80617bc4622,fffff80617bc4628,fffff80617bc462a" ,"c:\\\\users\\\\sina\\\\desktop\\\\dump1.w2i"```
 
   
 *         If you want to execute until a specific address is executed or if windbg reaches to the return of current function. (replace the path to save the dump and the address(es))
