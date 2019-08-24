@@ -2,8 +2,6 @@
 Windbg2ida lets you dump each step in Windbg then shows these steps in IDA
 Windbg2ida - Windbg and IDA plugin      
 
-[Windbg2ida](index.html)
-========================
 
 Shows every steps of Windbg in IDA :)
 -------------------------------------
@@ -16,18 +14,6 @@ Shows every steps of Windbg in IDA :)
 
 [Follow @Intel80x86](https://twitter.com/Intel80x86?ref_src=twsrc%5Etfw)
 
-### Latest News
-
-#### First Version Released
-
-##### Aug 21st, 2019
-
-### Similar Projects
-
-*   [ret-sync](https://github.com/bootleg/ret-sync)
-*   [Another Windbg2ida for 32bit only](http://rmadair.github.io/windbg2ida/)
-*   [Ablation](https://github.com/cylance/Ablation/)
-*   [Integrating WinDbg and IDA for Improved Code Flow Analysis](http://www.exploit-monday.com/2011/07/integrating-windbg-and-ida-for-improved.html)
 
 Introduction to Windbg2ida
 ==========================
@@ -182,6 +168,20 @@ Todo
 
 *   Add Pause when a special value detected for a register
 *   Add Pause when a special memory address used in program flow
+
+### Latest News
+
+#### First Version Released
+
+##### Aug 21st, 2019
+
+### Similar Projects
+
+*   [ret-sync](https://github.com/bootleg/ret-sync)
+*   [Another Windbg2ida for 32bit only](http://rmadair.github.io/windbg2ida/)
+*   [Ablation](https://github.com/cylance/Ablation/)
+*   [Integrating WinDbg and IDA for Improved Code Flow Analysis](http://www.exploit-monday.com/2011/07/integrating-windbg-and-ida-for-improved.html)
+
 
 Contribution
 ------------
