@@ -239,7 +239,7 @@ function StepInto() {
 
         if (InclueMemoryAddressAndContentsAsComment) {
         // Setting memory locations for mov instructions
-    		if (FinalResult.includes(" mov ") && (FinalResult.includes("cs:") ||FinalResult.includes("ss:") 
+    		if (FinalResult.includes(" mov") && (FinalResult.includes("cs:") ||FinalResult.includes("ss:") 
     			|| FinalResult.includes("ds:") || FinalResult.includes("es:") || FinalResult.includes("fs:") 
     			|| FinalResult.includes("gs:"))) 
     		{
@@ -331,7 +331,7 @@ function StepManager(stringOfAddresses, BreakOnReturnOfCurrentFunction) {
             Print("[*] ==================================== Return detected, Depth : " + ReturnDepth + " \n");
         }
 
-        if (string.includes("call") && string.includes("e8") && StepIn == true) {
+        if (string.includes(" call ") /* && string.includes("e8") */ && StepIn == true) {
             ReturnDepth++;
             Print("[*] ==================================== Call detected, Depth : " + ReturnDepth + " \n");
         }
