@@ -1,4 +1,4 @@
-# windbg2ida
+# windbg2ida (New Version 1.1.2 - 31 Aug 2019)
 Windbg2ida lets you dump each step in Windbg then shows these steps in IDA
 Windbg2ida - Windbg and IDA plugin      
 
@@ -338,6 +338,12 @@ Todo
 #### First Version Released
 
 ##### Aug 21st, 2019
+
+
+#### First Version Released
+
+##### Aug 31, 2019
+Version 1.1.2
 
 ### Similar Projects
 
