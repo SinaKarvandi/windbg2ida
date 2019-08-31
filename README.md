@@ -319,13 +319,20 @@ Current features :
 *   Show other modules and invalid addresses
 *   etc.
 
-What's new?
+What's new? (v1.0.0.0)
 -----------
 
 *   Add comparing for two or more files
 *   Add read from folders
 *   Add registers + eflag read
 *   Add branch status show
+
+What's new? (v1.1.2.0)
+-----------
+
+*   Fix MOVxx bug as some moves memory didn't show
+*   IDA reports functions in order of execution
+*   Some calls are not executed (fixed)
 
 Todo
 ----
