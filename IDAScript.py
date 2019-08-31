@@ -35,6 +35,12 @@ def BlendColors(Color1 , Color2, amount):
     
     return '%02x%02x%02x' % (r, g, b)
 #---------------------------------------------------------------------
+def UniqueWithOutChangeOrder(seq):
+	seen = set()
+	seen_add = seen.add
+	return [x for x in seq if not (x in seen or seen_add(x))]
+
+#---------------------------------------------------------------------
 
 def CheckWhetherAddressIsValid(name_or_ea):
         """
@@ -220,7 +226,7 @@ print("===================================================")
 print("Changes applied to these function(s) : ")
 
 # Unique them
-ListOfColoredFunctions = list(set(ListOfColoredFunctions)) 
+ListOfColoredFunctions = UniqueWithOutChangeOrder(ListOfColoredFunctions)
 
 for item in ListOfColoredFunctions:
 	print("\t" + item)
