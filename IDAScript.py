@@ -4,7 +4,7 @@ import os
 
 #---------------------------------------------------------------------
 # Global Variables
-ScriptVersion = "1.0.0.0"
+ScriptVersion = "1.1.3.0"
 
 #---------------------------------------------------------------------
 # Application Variables
@@ -34,7 +34,47 @@ def BlendColors(Color1 , Color2, amount):
     b = ((tempColor1[2] * amount) + tempColor2[2] * (1 - amount));
     
     return '%02x%02x%02x' % (r, g, b)
+
 #---------------------------------------------------------------------
+
+def GetBasicBlockID(Graph, StartAddress):
+    for Block in Graph:
+        if Block.startEA <= StartAddress and Block.endEA > StartAddress:
+            return Block.id
+
+#---------------------------------------------------------------------
+
+def GetFunctionBaseAddress(Address):
+    """
+    Address can be any address inside the function.
+    @return:
+        - func_t object
+        - None object if invalid 
+    """
+    obj = get_func(Address)
+    if obj is not None:
+        return obj.startEA
+    else:
+        return 0
+        
+#---------------------------------------------------------------------
+
+def ColorBlock(Address, Color):
+    """
+    Colors an entire IDA basic block.
+    This coloration appears on the graph view
+    """
+    BaseBlockEA = GetFunctionBaseAddress(Address)
+    Func = get_func(Address)
+    if Func:
+        Graph = FlowChart(Func, flags=FC_PREDS)
+        BlockID = GetBasicBlockID(Graph, Address)
+        Node = node_info_t()
+        Node.bg_color = Color
+        idaapi.set_node_info2(BaseBlockEA, BlockID, Node, idaapi.NIF_BG_COLOR | idaapi.NIF_FRAME_COLOR)  
+ 
+#--------------------------------------------------------------------- 
+
 def UniqueWithOutChangeOrder(seq):
 	seen = set()
 	seen_add = seen.add
@@ -64,7 +104,9 @@ def CheckWhetherAddressIsValid(name_or_ea):
             print("[*] Address ("+str(hex(name_or_ea))+") belongs to, Function : " + GetFunctionName(name_or_ea))
             ListOfColoredFunctions.append(GetFunctionName(name_or_ea))
         return ea
+
 #---------------------------------------------------------------------
+
 def InterpretFile(filePathArg):
 	global ListPointersWithColors
 	IsReadingInstructions = False # Detects whether we're in reading instructions state
@@ -183,13 +225,15 @@ def InterpretFile(filePathArg):
 
 				# Check Whether Address Is Valid
 				CheckWhetherAddressIsValid(ColorPointer)
-				if UseNewColor :
+				if UseNewColor:
 					SetColor(ColorPointer, CIC_ITEM, int(NewColor,16))
-				else :
+					ColorBlock(ColorPointer, int(NewColor, 16))
+				else:
 					SetColor(ColorPointer, CIC_ITEM, CurrentColor)
+					ColorBlock(ColorPointer, CurrentColor)
 
 				if InclueRegistersAsComment:
-					if "[gotonewline]" in CurrentRegisters :
+					if "[gotonewline]" in CurrentRegisters:
 						MakeRptCmt(ColorPointer, CurrentRegisters.split("[gotonewline]")[0] + "\n" + CurrentRegisters.split("[gotonewline]")[1])
 					else :
 						MakeRptCmt(ColorPointer, CurrentRegisters)
