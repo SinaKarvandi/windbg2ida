@@ -124,15 +124,6 @@ Each time you run IDAScript.py all the .w2i files in the "w2i Files" graphs are 
 
     	```.scriptunload "C:\\Users\\Sina\\Desktop\\windbg2ida\\windbg2ida.js"```
 
-  
-  
-
-Pictures
---------
-
-![Windbg2ida](https://windbg2ida.ntdebug.com/style/windbg2ida-IDAGraph.png) 
-![Windbg2ida](https://windbg2ida.ntdebug.com/style/windbg2ida-compare-two-scripts.png) 
-![Windbg2ida](https://windbg2ida.ntdebug.com/style/Windbg2ida-windbg.png)
 
 Demo
 ----
